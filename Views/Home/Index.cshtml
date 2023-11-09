@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Ejemplo 1: Uso basico de SeetAlert2</h1>
+
+<button class="btn btn-primary" onclick="mostrarAlerta1()">Alerta Basica</button>
+<a class="btn btn-success" onclick="mostrarAlerta2()">Alerta Exitosa</a>
+<a class="btn btn-danger" onclick="mostrarError()">Alerta Exitosa</a>
+
+<h1>Ejemplo 2: Interceptando un Formulario</h1>
+
+<form method="post" id="formulario" onsubmit="enviarFormulario(event)">
+	<div class="mb-3">
+		<label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" name="Nombre" class="form-control" autocomplete="off"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+</form>
+
+@section Scripts{
+    <script>
+        function mostrarAlerta1() {
+            Swal.fire('Ejemplo de SweetAlert2');
+        }
+
+        function mostrarAlerta2() {
+            Swal.fire('Excelente', "Guardado Correctamente", 'success');
+        }
+
+        function mostrarError() {
+            Swal.fire('Error', 'Error de Autenticacion', 'error');
+        }
+
+        function enviarFormulario(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Quiere Guardar los Datos?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Si'
+            }).then((resultado) => {
+                if (resultado.isConfirmed) {
+                    const formulario = document.getElementById('formulario');
+                    formulario.submit();
+                }
+            })
+
+
+        }
+
+    </script>
+}
+
+
+
+
