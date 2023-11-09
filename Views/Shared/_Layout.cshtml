@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+	<link href="~/Scripts/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+	<link href="~/Scripts/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -18,8 +20,11 @@
 			</button>
 			<div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
 				<ul class="navbar-nav flex-grow-1">
-					<li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+					<li>
+						@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
 
+				</li>
+				
 				</ul>
 			</div>
 		</div>
